@@ -1,0 +1,13 @@
+{
+  "seed": 42,
+  "selected_s1_entities": 1000,
+  "tuning_entities": 100,
+  "training_entities": 700,
+  "evaluation_entities": 200,
+  "reference_reservoir_target_per_source": 20000,
+  "positive_reference_ids_retained": {
+    "S2": 1662,
+    "S3": 1823
+  },
+  "protocol": "seeded disjoint S1 split; references reservoir-sampled from full source tables plus every selected S1 linked positive"
+}

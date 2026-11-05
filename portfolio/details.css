@@ -1,0 +1,2 @@
+/* Confidence intervals and selected-cap marker for the SVG evaluation chart. */
+.ci-line,.ci-cap{stroke:var(--blue);stroke-width:1.2;opacity:.9}.selected-guide{stroke:#67e2b25c;stroke-dasharray:3 5;stroke-width:1}.table-ci{color:#71898a;font:10px var(--mono)}

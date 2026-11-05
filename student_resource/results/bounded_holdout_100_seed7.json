@@ -1,0 +1,92 @@
+{
+  "evaluation_protocol": "fresh held-out S1; reservoir train S2/S3 references; evaluation positives deliberately retained (optimistic candidate recall)",
+  "reference_mode": "reservoir",
+  "reference_pool_size_per_source": 50000,
+  "seed": 7,
+  "tuning_entities_reserved": 100,
+  "training_entities_reserved": 3000,
+  "evaluation_entities": 100,
+  "reference_counts": {
+    "S2": 50163,
+    "S3": 50195
+  },
+  "threshold": 0.85,
+  "ground_truth_links": 358,
+  "singleton_entities": 8,
+  "candidate_cap_sweep": [
+    {
+      "max_candidates_per_source": 10,
+      "candidate_links": 1953,
+      "average_candidates_per_s1": 19.53,
+      "candidate_recall_for_known_links": 0.9776536312849162,
+      "candidate_reduction_ratio": 0.999805396679886,
+      "macro_f05": 0.9622646784076445,
+      "macro_f05_bootstrap_95pct_ci": [
+        0.9446806331514219,
+        0.9770186586219756
+      ],
+      "macro_precision_including_empty_cases": 0.9831666666666666,
+      "macro_recall_including_empty_cases": 0.9193809523809524,
+      "micro_precision": 0.9788519637462235,
+      "micro_recall": 0.9050279329608939,
+      "micro_true_positives": 324,
+      "predicted_links": 331
+    },
+    {
+      "max_candidates_per_source": 20,
+      "candidate_links": 3747,
+      "average_candidates_per_s1": 37.47,
+      "candidate_recall_for_known_links": 0.9804469273743017,
+      "candidate_reduction_ratio": 0.9996266366408258,
+      "macro_f05": 0.957068354263952,
+      "macro_f05_bootstrap_95pct_ci": [
+        0.937788619408522,
+        0.9741377465787262
+      ],
+      "macro_precision_including_empty_cases": 0.9773333333333334,
+      "macro_recall_including_empty_cases": 0.9193809523809524,
+      "micro_precision": 0.9671641791044776,
+      "micro_recall": 0.9050279329608939,
+      "micro_true_positives": 324,
+      "predicted_links": 335
+    },
+    {
+      "max_candidates_per_source": 40,
+      "candidate_links": 6883,
+      "average_candidates_per_s1": 68.83,
+      "candidate_recall_for_known_links": 0.9804469273743017,
+      "candidate_reduction_ratio": 0.9993141553239403,
+      "macro_f05": 0.9547642067985143,
+      "macro_f05_bootstrap_95pct_ci": [
+        0.9349575153949911,
+        0.9739741773352765
+      ],
+      "macro_precision_including_empty_cases": 0.9749523809523809,
+      "macro_recall_including_empty_cases": 0.9193809523809524,
+      "micro_precision": 0.9585798816568047,
+      "micro_recall": 0.9050279329608939,
+      "micro_true_positives": 324,
+      "predicted_links": 338
+    },
+    {
+      "max_candidates_per_source": 80,
+      "candidate_links": 11708,
+      "average_candidates_per_s1": 117.08,
+      "candidate_recall_for_known_links": 0.9860335195530726,
+      "candidate_reduction_ratio": 0.9988333765120867,
+      "macro_f05": 0.9547642067985143,
+      "macro_f05_bootstrap_95pct_ci": [
+        0.9332964312472801,
+        0.9739072963986792
+      ],
+      "macro_precision_including_empty_cases": 0.9749523809523809,
+      "macro_recall_including_empty_cases": 0.9193809523809524,
+      "micro_precision": 0.9585798816568047,
+      "micro_recall": 0.9050279329608939,
+      "micro_true_positives": 324,
+      "predicted_links": 338
+    }
+  ],
+  "elapsed_seconds": 62.31,
+  "caveat": "Bounded reference sampling retains the labeled references of the evaluated entities by design, so candidate recall and F0.5 are optimistic versus the full-corpus protocol. Use this mode for pipeline checks and paired comparisons, not as a headline metric."
+}

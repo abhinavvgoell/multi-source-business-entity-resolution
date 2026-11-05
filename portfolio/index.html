@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive portfolio project for multi-source business entity resolution, candidate blocking, and precision-weighted matching.">
+  <title>Entity Resolution Lab — Abhinav Goel</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="details.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Entity Resolution Lab home"><span class="brand-mark">ER</span><span>ENTITY RESOLUTION <span class="muted">/ LAB</span></span></a>
+    <nav aria-label="Main navigation"><a href="#results">Results</a><a href="#explorer">Pair explorer</a><a href="#method">Method</a><a href="https://github.com/abhinavvgoell/multi-source-business-entity-resolution" target="_blank" rel="noopener">GitHub</a></nav>
+    <span class="status-pill"><i></i> OFFLINE EVALUATION</span>
+  </header>
+  <main id="main">
+    <section class="hero section-wrap" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span> ML CHALLENGE · BUSINESS IDENTITY</p>
+        <h1>When records disagree,<br><em>find the same business.</em></h1>
+        <p class="hero-lede">A scalable entity-resolution pipeline that blocks millions of possible pairs down to a focused candidate set, then scores noisy business names and addresses.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#results">Explore the evaluation <span aria-hidden="true">↘</span></a><a class="text-link" href="#explorer">Try the pair scorer <span aria-hidden="true">→</span></a></div>
+        <div class="hero-tags"><span>3 data sources</span><span>Open-set country handling</span><span>Python · NumPy</span></div>
+      </div>
+      <div class="hero-visual" aria-label="Records from three sources resolving to one entity">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="node node-s1"><b>S1</b><span>reference</span></div><div class="node node-s2"><b>S2</b><span>source record</span></div><div class="node node-s3"><b>S3</b><span>source record</span></div>
+        <div class="hub"><span class="hub-icon">◎</span><b>same<br>business</b></div>
+        <svg class="links" viewBox="0 0 460 350" aria-hidden="true"><path d="M92 91 C165 105 184 139 221 164"/><path d="M370 86 C296 103 278 136 240 162"/><path d="M108 273 C170 252 186 216 222 190"/><path d="M352 263 C294 246 270 210 239 190"/></svg>
+        <span class="visual-caption">PARTIAL SIGNALS · ONE IDENTITY</span>
+      </div>
+    </section>
+    <section class="results section-wrap" id="results">
+      <div class="section-heading"><div><p class="eyebrow">01 / HELD-OUT BENCHMARK</p><h2>Measure the trade-off,<br class="mobile-break"> not just the match.</h2></div><p class="section-note">A fresh set of labeled training entities, scored against the full training reference corpora. Test labels were not available.</p></div>
+      <div class="metric-grid">
+        <article class="metric-card metric-featured"><span class="metric-label">MACRO F<sub>0.5</sub></span><strong id="headlineF05">0.727</strong><span class="metric-foot">cap 20 · 500 held-out S1s</span><div class="metric-spark" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></article>
+        <article class="metric-card"><span class="metric-label">CANDIDATE RECALL</span><strong id="headlineRecall">82.3%</strong><span class="metric-foot">known links found before scoring</span></article>
+        <article class="metric-card"><span class="metric-label">CANDIDATES / S1</span><strong id="headlineAvg">39.5</strong><span class="metric-foot">from about 10.3M possible pairs</span></article>
+        <article class="metric-card"><span class="metric-label">PAIR REDUCTION</span><strong id="headlineReduction">99.9996%</strong><span class="metric-foot">full reference search → blocked set</span></article>
+      </div>
+      <div class="results-meta"><span><b>Evaluation threshold</b><strong id="thresholdLabel">0.98</strong></span><span><b>Ground-truth links</b><strong id="truthLinks">1,732</strong></span><span><b>Singleton S1s</b><strong id="singletonCount">30</strong></span><span><b>95% bootstrap interval</b><strong id="ciLabel">0.703–0.750</strong></span></div>
+      <p class="honesty-note"><span class="note-icon">i</span><span><b>How to read this:</b> F<sub>0.5</sub> is the challenge’s precision-weighted metric, not accuracy. This is an offline holdout estimate; its interval overlaps the other cap settings. It does not predict the Unstop test score.</span></p>
+      <div class="external-eval">
+        <div class="external-eval-heading"><div><p class="eyebrow">CROSS-DATASET CHECKS · FODORS–ZAGATS &amp; WDC</p><h3>Do the features transfer?</h3></div><p>Five entity-disjoint restaurant runs and a separate unseen-product benchmark. Thresholds are selected on validation data.</p></div>
+        <div class="external-eval-grid">
+          <article class="external-eval-card"><span class="metric-label">RETRAINED ON BENCHMARK TRAIN SPLITS</span><strong>99.95%</strong><span class="metric-foot">all-pairs accuracy · 0.42% of pairs are matches</span><div class="external-mini-metrics"><span>Precision <b>89.5%</b></span><span>Recall <b>100%</b></span><span>F<sub>0.5</sub> <b>0.914</b></span></div></article>
+          <article class="external-eval-card external-baseline"><span class="metric-label">SAVED AMAZON WEIGHTS · ZERO-SHOT</span><strong>54.6%</strong><span class="metric-foot">precision · 100% recall, with over-prediction</span><div class="external-mini-metrics"><span>Pair accuracy <b>99.64%</b></span><span>F<sub>0.5</sub> <b>0.600</b></span><span>Domain shift <b>visible</b></span></div></article>
+        </div>
+        <article class="external-eval-card feature-result"><span class="metric-label">FEATURE ENGINEERING · FODORS–ZAGATS</span><strong>0.843</strong><span class="metric-foot">F<sub>0.5</sub> with richer features, down from 0.914 baseline</span><div class="external-mini-metrics"><span>Precision <b>81.5%</b> vs 89.5%</span><span>Recall <b>100%</b> both</span><span>Decision <b>keep baseline</b></span></div></article>
+        <article class="external-eval-card wdc-result"><span class="metric-label">WDC PRODUCTS · UNSEEN-ENTITY TEST</span><strong>0.340</strong><span class="metric-foot">F<sub>0.5</sub> with engineered product features, up from 0.218</span><div class="external-mini-metrics"><span>Accuracy <b>76.4%</b></span><span>Precision <b>29.7%</b></span><span>Recall <b>82.0%</b></span></div></article>
+        <p class="external-caveat"><b>Interpretation:</b> Feature changes helped on WDC product records but hurt on Fodors–Zagats restaurants. WDC is not a business/address dataset, and neither result is an accuracy estimate for the Amazon challenge. Its single unseen test contains 500 matches and 4,000 non-matches; the product model is retrained for that task.</p>
+      </div>
+    </section>
+    <section class="tradeoff section-wrap" id="tradeoff">
+      <div class="section-heading compact-heading"><div><p class="eyebrow">02 / CANDIDATE EFFICIENCY</p><h2>Choose how much to search.</h2></div><p class="section-note">Compare caps on the same 500 held-out entities. The match model and threshold stay fixed.</p></div>
+      <div class="tradeoff-panel">
+        <div class="tradeoff-controls">
+          <div class="control-top"><label for="capSlider">Maximum candidates <span>per reference source / S1</span></label><output id="capOutput" for="capSlider">20</output></div>
+          <input id="capSlider" type="range" min="10" max="160" step="10" value="20" aria-describedby="capDescription">
+          <div class="range-labels"><span>10 / source</span><span>160 / source</span></div>
+          <p id="capDescription" class="control-caption">The blocking stage keeps the strongest-ranked candidates. Lower caps shrink review and scoring volume; they can also miss true links.</p>
+          <div class="selected-stats"><div><span>Candidate links</span><b id="selectedLinks">19,762</b></div><div><span>Known-link recall</span><b id="selectedRecall">82.3%</b></div><div><span>Macro F<sub>0.5</sub></span><b id="selectedF05">0.727</b></div><div><span>Micro precision / recall</span><b id="selectedMicro">79.1% / 68.6%</b></div></div>
+          <div class="interval-inline">95% bootstrap interval <strong id="selectedCi">0.703–0.750</strong></div>
+        </div>
+        <div class="tradeoff-chart-wrap"><div class="chart-heading"><span>QUALITY VS. SEARCH SIZE</span><span>same holdout · same threshold</span></div><div class="chart" id="capChart" role="img" aria-label="Macro F0.5 and bootstrap interval across candidate caps"></div><div class="chart-legend"><span><i class="legend-f05"></i>Macro F<sub>0.5</sub></span><span><i class="legend-recall"></i>95% bootstrap interval</span></div></div>
+      </div>
+      <div class="tradeoff-foot"><span>Selected operating point: <b>cap 20</b> gives a smaller candidate set with a similar holdout F<sub>0.5</sub> to cap 80.</span><span class="warning-small">Intervals overlap; this sample does not establish a statistically clear winner.</span></div>
+      <div class="table-wrap"><table><caption>Full cap sweep · every row uses the same held-out entities</caption><thead><tr><th>Cap / source</th><th>Avg candidates / S1</th><th>Links retained</th><th>Candidate recall</th><th>Macro F<sub>0.5</sub> [95% CI]</th></tr></thead><tbody id="capTable"></tbody></table></div>
+    </section>
+    <section class="explorer section-wrap" id="explorer">
+      <div class="section-heading compact-heading"><div><p class="eyebrow">03 / INTERACTIVE PAIR SCORER</p><h2>Inspect the signals.</h2></div><p class="section-note">Edit either record to see how the saved NumPy logistic model responds to name, address, postal, and country similarity.</p></div>
+      <div class="scorer-layout">
+        <form id="pairForm" class="pair-form">
+          <div class="record-card"><div class="record-heading"><span class="source-badge source-one">S1</span><div><b>Reference business</b><small>Source 1 record</small></div></div><label>Business name<input id="nameA" type="text" value="North Shore Coffee Roasters" autocomplete="off"></label><label>Business address<input id="addressA" type="text" value="125 West Lake Street, Suite 3, Chicago, IL 60601" autocomplete="off"></label><label>Country<input id="countryA" type="text" value="US" autocomplete="off"></label></div>
+          <div class="record-card"><div class="record-heading"><span class="source-badge source-two">S2</span><div><b>Candidate business</b><small>Source 2 / Source 3 record</small></div></div><label>Business name<input id="nameB" type="text" value="North Shore Coffee Roasters LLC" autocomplete="off"></label><label>Business address<input id="addressB" type="text" value="125 W Lake St Ste 3 Chicago IL 60601" autocomplete="off"></label><label>Country<input id="countryB" type="text" value="US" autocomplete="off"></label></div>
+          <div class="form-actions"><button class="button button-primary" type="submit">Score this pair <span aria-hidden="true">→</span></button><label class="threshold-control">Display threshold <select id="displayThreshold"><option value="0.98">0.98 · calibrated model</option><option value="0.95">0.95</option><option value="0.90">0.90</option><option value="0.70">0.70</option></select></label></div>
+        </form>
+        <aside class="score-card" aria-live="polite"><div class="score-top"><span>FINAL DEMO DECISION</span><span id="modelStatus" class="model-status">Loading weights…</span></div><div class="score-display"><div id="scoreRing" class="decision-mark"><span id="scoreValue">…</span></div><div><p id="decisionLabel" class="decision-label">Waiting for model</p><small>Classifier cutoff <b id="decisionThreshold">0.98</b></small></div></div><p class="decision-detail" id="decisionDetail" aria-live="polite"></p><p class="raw-score-context" id="rawScoreContext"></p><p class="score-caveat" id="scoreCaveat">The final demo verdict adds transparent name and address review checks to the raw classifier score, which is not a calibrated probability. Category-only names at the same address and missing or less-detailed addresses prompt review; this is a conservative demo heuristic, not proof of identity. The production blocker is country-aware.</p><div class="feature-list" id="featureList"></div></aside>
+      </div>
+    </section>
+    <section class="method section-wrap" id="method">
+      <div class="section-heading compact-heading"><div><p class="eyebrow">04 / SYSTEM DESIGN</p><h2>Block first. Score second.</h2></div><p class="section-note">A multi-pass retrieval layer limits comparisons. A pairwise model then uses complementary string and record signals.</p></div>
+      <div class="pipeline"><article><span class="step-number">01</span><div class="step-icon">⌕</div><h3>Normalize</h3><p>Case-fold, transliterate, tokenize; separate business-name and address evidence.</p><div class="step-tags"><span>suffix-aware</span><span>country-aware</span></div></article><article><span class="step-number">02</span><div class="step-icon">▦</div><h3>Block</h3><p>Union rare name/address tokens with name prefixes, an order-insensitive name signature, digit prefixes, and postal keys.</p><div class="step-tags"><span>multi-pass</span><span>top-k cap</span></div></article><article><span class="step-number">03</span><div class="step-icon">⌗</div><h3>Compare</h3><p>Compute token and trigram Jaccard, containment, exact fields, postal overlap, and country match.</p><div class="step-tags"><span>10 features</span><span>open-set labels</span></div></article><article><span class="step-number">04</span><div class="step-icon">↗</div><h3>Decide</h3><p>Apply a balanced NumPy logistic model and a precision-weighted threshold; allow empty and many-to-many outcomes.</p><div class="step-tags"><span>macro F<sub>0.5</sub></span><span>multi-match</span></div></article></div>
+      <div class="snapshot-bar"><div><span class="eyebrow">CHALLENGE INFERENCE SNAPSHOT · CAP 80</span><p>Full unlabeled test run; metrics below describe workload, not accuracy.</p></div><div class="snapshot-stat"><b>1.73M</b><span>Source 1 records</span></div><div class="snapshot-stat"><b>258.9M</b><span>candidate links</span></div><div class="snapshot-stat"><b>14.36M</b><span>predicted links</span></div></div>
+      <p class="snapshot-caveat"><b>Test-label limitation.</b> No test ground truth was provided. These test-set counts describe output volume only; the score shown above comes from the labeled training holdout.</p>
+    </section>
+    <section class="reproduce section-wrap"><div class="reproduce-card"><div><p class="eyebrow">05 / REPRODUCE</p><h2>Run it locally.</h2><p>Install NumPy, use the challenge data folder, then train, evaluate, and predict. The portfolio page itself is dependency-free.</p></div><pre><code>cd student_resource<br>pip install -r code/business_entity_resolution/requirements.txt<br>python code/business_entity_resolution/src/business_entity_resolution.py train --data dataset --model model/entity_matcher.json<br>python code/business_entity_resolution/src/evaluate_holdout.py --data dataset --model model/entity_matcher.json --eval-size 500 --streaming-references --report results/fresh_holdout_500.json<br>python code/business_entity_resolution/src/business_entity_resolution.py predict --data dataset/test --model model/entity_matcher.json --output output --max-candidates 80</code></pre></div><div class="ui-run"><span>PORTFOLIO UI</span><code>python -m http.server 8000</code><span>Then open <b>http://localhost:8000/portfolio/</b></span></div></section>
+  </main>
+  <footer class="footer"><a class="brand" href="#top"><span class="brand-mark">ER</span><span>ENTITY RESOLUTION <span class="muted">/ LAB</span></span></a><span>Built by Abhinav Goel · Portfolio edition</span><a href="#top">Back to top ↑</a></footer>
+</body>
+</html>
+
+

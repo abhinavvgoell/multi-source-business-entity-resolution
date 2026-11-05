@@ -1,0 +1,73 @@
+{
+  "title": "Amazon model retraining comparison",
+  "evaluation_protocol": "Same 500 held-out Source 1 entities, same 100,000-row-per-source reservoir reference samples, same current blocker (including the name-signature key) and the same candidate caps. Each model uses its own saved cutoff, and both cutoffs were tuned on the same 100-entity split disjoint from the reported entities. Reference rows for all selected entities including holdout positives are deliberately retained, so this comparison does not estimate naturally sampled candidate recall.",
+  "caveat": "Bounded paired comparison, not full-corpus challenge performance or ordinary accuracy. Holdout linked reference rows are included by design, so absolute candidate recall and scores are optimistic versus natural retrieval. The full-reference 500-entity report (macro F0.5 0.727 at cap 20) remains the representative end-to-end estimate.",
+  "train_entities": 3000,
+  "tuning_entities": 100,
+  "evaluation_entities": 500,
+  "heldout_ground_truth_links": 1732,
+  "reference_rows_per_source": {
+    "S2": 100836,
+    "S3": 100896
+  },
+  "threshold": {
+    "saved_model": 0.98,
+    "retrained_model": 0.98
+  },
+  "cap20": {
+    "max_candidates_per_source": 20,
+    "saved_model": {
+      "micro_precision": 0.9947289156626506,
+      "micro_recall": 0.7627020785219399,
+      "macro_f05": 0.8994125159598074,
+      "candidate_recall": 0.9717090069284064,
+      "ci95": [
+        0.882967899867597,
+        0.9156727725593459
+      ]
+    },
+    "retrained_model": {
+      "micro_precision": 0.9954853273137697,
+      "micro_recall": 0.7638568129330254,
+      "macro_f05": 0.8999109053155498,
+      "candidate_recall": 0.9722863741339491,
+      "ci95": [
+        0.8837261601573542,
+        0.9171116068082268
+      ]
+    }
+  },
+  "cap80": {
+    "max_candidates_per_source": 80,
+    "saved_model": {
+      "micro_precision": 0.9947368421052631,
+      "micro_recall": 0.7638568129330254,
+      "macro_f05": 0.8997193341416257,
+      "candidate_recall": 0.9826789838337182,
+      "ci95": [
+        0.8816815435829429,
+        0.9152353080703827
+      ]
+    },
+    "retrained_model": {
+      "micro_precision": 0.9954921111945906,
+      "micro_recall": 0.7650115473441108,
+      "macro_f05": 0.900217723497368,
+      "candidate_recall": 0.983256351039261,
+      "ci95": [
+        0.8836534724250191,
+        0.9168688270828824
+      ]
+    }
+  },
+  "macro_f05_gap_at_cap20": 0.0004983893557424235,
+  "conclusion": "Under the current blocker and cutoff calibration the two models are statistically indistinguishable on this holdout: the retrained model is 0.0005 macro F0.5 ahead at cap 20, with heavily overlapping bootstrap intervals, and it wins by the same negligible margin at cap 80 while gaining 0.1 points of micro precision. Because there is no measured gain worth the churn, the saved model stays the default and the retrained weights are kept only as an experiment. Re-tuning the cutoff, not re-fitting the weights, is what moved the earlier 0.85-era scores; the older report showed a precision-for-recall trade because the two models were compared at cutoffs tuned under the previous blocker.",
+  "training_pairs": 48934,
+  "retrained_validation_macro_f05": 0.8844013677920225,
+  "retrained_weights": "student_resource/model/entity_matcher_retrained.json",
+  "saved_weights": "student_resource/model/entity_matcher.json",
+  "reports": [
+    "student_resource/results/retrain_new/saved_model_holdout.json",
+    "student_resource/results/retrain_new/retrained_model_holdout.json"
+  ]
+}

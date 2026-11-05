@@ -1,0 +1,218 @@
+{
+  "evaluation_protocol": "fresh held-out S1; reservoir train S2/S3 references; evaluation positives deliberately retained (optimistic candidate recall)",
+  "reference_mode": "reservoir",
+  "reference_pool_size_per_source": 100000,
+  "seed": 42,
+  "tuning_entities_reserved": 100,
+  "training_entities_reserved": 3000,
+  "evaluation_entities": 500,
+  "reference_counts": {
+    "S2": 100836,
+    "S3": 100896
+  },
+  "threshold": 0.98,
+  "ground_truth_links": 1732,
+  "singleton_entities": 30,
+  "candidate_cap_sweep": [
+    {
+      "max_candidates_per_source": 10,
+      "candidate_links": 9914,
+      "average_candidates_per_s1": 19.828,
+      "candidate_recall_for_known_links": 0.9665127020785219,
+      "candidate_reduction_ratio": 0.9999017111811711,
+      "macro_f05": 0.8997025719822165,
+      "macro_f05_bootstrap_95pct_ci": [
+        0.8822920595616391,
+        0.9153718706776446
+      ],
+      "macro_precision_including_empty_cases": 0.9619333333333333,
+      "macro_recall_including_empty_cases": 0.7743,
+      "micro_precision": 0.9954819277108434,
+      "micro_recall": 0.7632794457274826,
+      "micro_true_positives": 1322,
+      "predicted_links": 1328
+    },
+    {
+      "max_candidates_per_source": 20,
+      "candidate_links": 19605,
+      "average_candidates_per_s1": 39.21,
+      "candidate_recall_for_known_links": 0.9722863741339491,
+      "candidate_reduction_ratio": 0.9998056332163464,
+      "macro_f05": 0.8999109053155498,
+      "macro_f05_bootstrap_95pct_ci": [
+        0.8837261601573542,
+        0.9171116068082268
+      ],
+      "macro_precision_including_empty_cases": 0.9619333333333333,
+      "macro_recall_including_empty_cases": 0.7747999999999999,
+      "micro_precision": 0.9954853273137697,
+      "micro_recall": 0.7638568129330254,
+      "micro_true_positives": 1323,
+      "predicted_links": 1329
+    },
+    {
+      "max_candidates_per_source": 30,
+      "candidate_links": 28970,
+      "average_candidates_per_s1": 57.94,
+      "candidate_recall_for_known_links": 0.9745958429561201,
+      "candidate_reduction_ratio": 0.9997127872623084,
+      "macro_f05": 0.9000927234973679,
+      "macro_f05_bootstrap_95pct_ci": [
+        0.8821094646920826,
+        0.9153550952898748
+      ],
+      "macro_precision_including_empty_cases": 0.9619333333333333,
+      "macro_recall_including_empty_cases": 0.7754666666666667,
+      "micro_precision": 0.9954887218045113,
+      "micro_recall": 0.7644341801385681,
+      "micro_true_positives": 1324,
+      "predicted_links": 1330
+    },
+    {
+      "max_candidates_per_source": 40,
+      "candidate_links": 38007,
+      "average_candidates_per_s1": 76.014,
+      "candidate_recall_for_known_links": 0.9751732101616628,
+      "candidate_reduction_ratio": 0.999623193147344,
+      "macro_f05": 0.9000927234973679,
+      "macro_f05_bootstrap_95pct_ci": [
+        0.8815877821526661,
+        0.9160745389522401
+      ],
+      "macro_precision_including_empty_cases": 0.9619333333333333,
+      "macro_recall_including_empty_cases": 0.7754666666666667,
+      "micro_precision": 0.9954887218045113,
+      "micro_recall": 0.7644341801385681,
+      "micro_true_positives": 1324,
+      "predicted_links": 1330
+    },
+    {
+      "max_candidates_per_source": 50,
+      "candidate_links": 46784,
+      "average_candidates_per_s1": 93.568,
+      "candidate_recall_for_known_links": 0.9792147806004619,
+      "candidate_reduction_ratio": 0.9995361767096941,
+      "macro_f05": 0.900217723497368,
+      "macro_f05_bootstrap_95pct_ci": [
+        0.8829393852401654,
+        0.9163366551963307
+      ],
+      "macro_precision_including_empty_cases": 0.9619333333333333,
+      "macro_recall_including_empty_cases": 0.7759666666666667,
+      "micro_precision": 0.9954921111945906,
+      "micro_recall": 0.7650115473441108,
+      "micro_true_positives": 1325,
+      "predicted_links": 1331
+    },
+    {
+      "max_candidates_per_source": 60,
+      "candidate_links": 55205,
+      "average_candidates_per_s1": 110.41,
+      "candidate_recall_for_known_links": 0.98094688221709,
+      "candidate_reduction_ratio": 0.9994526897071362,
+      "macro_f05": 0.900217723497368,
+      "macro_f05_bootstrap_95pct_ci": [
+        0.8827838145164397,
+        0.916593063680203
+      ],
+      "macro_precision_including_empty_cases": 0.9619333333333333,
+      "macro_recall_including_empty_cases": 0.7759666666666667,
+      "micro_precision": 0.9954921111945906,
+      "micro_recall": 0.7650115473441108,
+      "micro_true_positives": 1325,
+      "predicted_links": 1331
+    },
+    {
+      "max_candidates_per_source": 70,
+      "candidate_links": 63347,
+      "average_candidates_per_s1": 126.694,
+      "candidate_recall_for_known_links": 0.9821016166281755,
+      "candidate_reduction_ratio": 0.9993719687506196,
+      "macro_f05": 0.900217723497368,
+      "macro_f05_bootstrap_95pct_ci": [
+        0.8820565315280073,
+        0.9162532715694868
+      ],
+      "macro_precision_including_empty_cases": 0.9619333333333333,
+      "macro_recall_including_empty_cases": 0.7759666666666667,
+      "micro_precision": 0.9954921111945906,
+      "micro_recall": 0.7650115473441108,
+      "micro_true_positives": 1325,
+      "predicted_links": 1331
+    },
+    {
+      "max_candidates_per_source": 80,
+      "candidate_links": 71172,
+      "average_candidates_per_s1": 142.344,
+      "candidate_recall_for_known_links": 0.983256351039261,
+      "candidate_reduction_ratio": 0.999294390577598,
+      "macro_f05": 0.900217723497368,
+      "macro_f05_bootstrap_95pct_ci": [
+        0.8836534724250191,
+        0.9168688270828824
+      ],
+      "macro_precision_including_empty_cases": 0.9619333333333333,
+      "macro_recall_including_empty_cases": 0.7759666666666667,
+      "micro_precision": 0.9954921111945906,
+      "micro_recall": 0.7650115473441108,
+      "micro_true_positives": 1325,
+      "predicted_links": 1331
+    },
+    {
+      "max_candidates_per_source": 100,
+      "candidate_links": 86154,
+      "average_candidates_per_s1": 172.308,
+      "candidate_recall_for_known_links": 0.9844110854503464,
+      "candidate_reduction_ratio": 0.9991458568794241,
+      "macro_f05": 0.900217723497368,
+      "macro_f05_bootstrap_95pct_ci": [
+        0.8836895760875069,
+        0.9166299948297842
+      ],
+      "macro_precision_including_empty_cases": 0.9619333333333333,
+      "macro_recall_including_empty_cases": 0.7759666666666667,
+      "micro_precision": 0.9954921111945906,
+      "micro_recall": 0.7650115473441108,
+      "micro_true_positives": 1325,
+      "predicted_links": 1331
+    },
+    {
+      "max_candidates_per_source": 120,
+      "candidate_links": 100110,
+      "average_candidates_per_s1": 200.22,
+      "candidate_recall_for_known_links": 0.9849884526558892,
+      "candidate_reduction_ratio": 0.999007495092499,
+      "macro_f05": 0.900217723497368,
+      "macro_f05_bootstrap_95pct_ci": [
+        0.8820327105505953,
+        0.916560580576687
+      ],
+      "macro_precision_including_empty_cases": 0.9619333333333333,
+      "macro_recall_including_empty_cases": 0.7759666666666667,
+      "micro_precision": 0.9954921111945906,
+      "micro_recall": 0.7650115473441108,
+      "micro_true_positives": 1325,
+      "predicted_links": 1331
+    },
+    {
+      "max_candidates_per_source": 160,
+      "candidate_links": 125631,
+      "average_candidates_per_s1": 251.262,
+      "candidate_recall_for_known_links": 0.9867205542725174,
+      "candidate_reduction_ratio": 0.9987544762357979,
+      "macro_f05": 0.900217723497368,
+      "macro_f05_bootstrap_95pct_ci": [
+        0.8814599231236999,
+        0.9168932791379265
+      ],
+      "macro_precision_including_empty_cases": 0.9619333333333333,
+      "macro_recall_including_empty_cases": 0.7759666666666667,
+      "micro_precision": 0.9954921111945906,
+      "micro_recall": 0.7650115473441108,
+      "micro_true_positives": 1325,
+      "predicted_links": 1331
+    }
+  ],
+  "elapsed_seconds": 46.01,
+  "caveat": "Bounded reference sampling retains the labeled references of the evaluated entities by design, so candidate recall and F0.5 are optimistic versus the full-corpus protocol. Use this mode for pipeline checks and paired comparisons, not as a headline metric."
+}

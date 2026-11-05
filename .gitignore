@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Large competition datasets and generated inference files (>100MB)
+student_resource/dataset/
+student_resource/output/
+*.zip
+*.tar.gz
+*.tsv.gz
+
+# System and editor junk
+.DS_Store
+.Rhistory
+.freebuff/
+.cloud-attachments/
+__MACOSX/
+.vscode/
+.idea/
+*.swp

@@ -1,0 +1,71 @@
+{
+  "evaluation_protocol": "fresh held-out S1; full train S2/S3 references; no evaluation-positive injection",
+  "seed": 42,
+  "tuning_entities_reserved": 100,
+  "training_entities_reserved": 3000,
+  "evaluation_entities": 500,
+  "reference_counts": {
+    "S2": 105929,
+    "S3": 106458
+  },
+  "threshold": 0.85,
+  "ground_truth_links": 1720,
+  "singleton_entities": 25,
+  "candidate_cap_sweep": [
+    {
+      "max_candidates_per_source": 20,
+      "candidate_links": 19451,
+      "average_candidates_per_s1": 38.902,
+      "candidate_recall_for_known_links": 0.9668604651162791,
+      "candidate_reduction_ratio": 0.9998168343636852,
+      "macro_f05": 0.9301243691057216,
+      "macro_f05_bootstrap_95pct_ci": [
+        0.9151402824336862,
+        0.9433857420302838
+      ],
+      "macro_precision_including_empty_cases": 0.9481261904761905,
+      "macro_recall_including_empty_cases": 0.9063301587301587,
+      "micro_precision": 0.9444779722389861,
+      "micro_recall": 0.9098837209302325,
+      "micro_true_positives": 1565,
+      "predicted_links": 1657
+    },
+    {
+      "max_candidates_per_source": 40,
+      "candidate_links": 37615,
+      "average_candidates_per_s1": 75.23,
+      "candidate_recall_for_known_links": 0.9703488372093023,
+      "candidate_reduction_ratio": 0.9996457881132085,
+      "macro_f05": 0.9251650730995641,
+      "macro_f05_bootstrap_95pct_ci": [
+        0.909694592710115,
+        0.9389978306020479
+      ],
+      "macro_precision_including_empty_cases": 0.9421004329004329,
+      "macro_recall_including_empty_cases": 0.9063301587301587,
+      "micro_precision": 0.9343283582089552,
+      "micro_recall": 0.9098837209302325,
+      "micro_true_positives": 1565,
+      "predicted_links": 1675
+    },
+    {
+      "max_candidates_per_source": 80,
+      "candidate_links": 70695,
+      "average_candidates_per_s1": 141.39,
+      "candidate_recall_for_known_links": 0.9761627906976744,
+      "candidate_reduction_ratio": 0.9993342812884027,
+      "macro_f05": 0.9210067201513649,
+      "macro_f05_bootstrap_95pct_ci": [
+        0.9048336318546171,
+        0.9351627539810725
+      ],
+      "macro_precision_including_empty_cases": 0.9365075757575757,
+      "macro_recall_including_empty_cases": 0.906963492063492,
+      "micro_precision": 0.9262536873156342,
+      "micro_recall": 0.9127906976744186,
+      "micro_true_positives": 1570,
+      "predicted_links": 1695
+    }
+  ],
+  "elapsed_seconds": 7.09
+}

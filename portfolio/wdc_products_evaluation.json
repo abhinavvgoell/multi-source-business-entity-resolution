@@ -1,0 +1,103 @@
+{
+  "benchmark": "WDC Products 80%-corner-case, 20%-unseen split; product matching",
+  "source": "https://webdatacommons.org/largescaleproductcorpus/wdc-products/",
+  "protocol": "Train/validation product clusters are disjoint; test uses official 100%-unseen gold standard; validation tunes threshold; cluster IDs are never features.",
+  "seed": 42,
+  "label_counts_test": {
+    "positive": 500,
+    "negative": 4000
+  },
+  "train_test_cluster_overlap": 0,
+  "results": {
+    "lexical_baseline": {
+      "feature_count": 7,
+      "training": {
+        "pairs": 14375,
+        "positive_pairs": 6965,
+        "product_clusters": 400
+      },
+      "validation": {
+        "pairs": 1904,
+        "positive_pairs": 1506,
+        "confusion_matrix": {
+          "tp": 1474,
+          "fp": 219,
+          "fn": 32,
+          "tn": 179
+        },
+        "accuracy": 0.868172268907563,
+        "balanced_accuracy": 0.7142502018725767,
+        "precision": 0.8706438275251034,
+        "recall": 0.9787516600265604,
+        "f1": 0.9215379806189434,
+        "f0_5": 0.8903116694853831,
+        "specificity": 0.44974874371859297,
+        "product_clusters": 100,
+        "selected_threshold": 0.23826872170362745
+      },
+      "test_unseen_products": {
+        "pairs": 4500,
+        "positive_pairs": 500,
+        "confusion_matrix": {
+          "tp": 447,
+          "fp": 1988,
+          "fn": 53,
+          "tn": 2012
+        },
+        "accuracy": 0.5464444444444444,
+        "balanced_accuracy": 0.6985,
+        "precision": 0.18357289527720738,
+        "recall": 0.894,
+        "f1": 0.30459965928449745,
+        "f0_5": 0.21826171875,
+        "specificity": 0.503,
+        "product_clusters": 500
+      }
+    },
+    "engineered": {
+      "feature_count": 19,
+      "training": {
+        "pairs": 14375,
+        "positive_pairs": 6965,
+        "product_clusters": 400
+      },
+      "validation": {
+        "pairs": 1904,
+        "positive_pairs": 1506,
+        "confusion_matrix": {
+          "tp": 1413,
+          "fp": 133,
+          "fn": 93,
+          "tn": 265
+        },
+        "accuracy": 0.8813025210084033,
+        "balanced_accuracy": 0.8020380788404173,
+        "precision": 0.9139715394566623,
+        "recall": 0.9382470119521913,
+        "f1": 0.9259501965923984,
+        "f0_5": 0.9187256176853055,
+        "specificity": 0.6658291457286433,
+        "product_clusters": 100,
+        "selected_threshold": 0.3683421201764103
+      },
+      "test_unseen_products": {
+        "pairs": 4500,
+        "positive_pairs": 500,
+        "confusion_matrix": {
+          "tp": 410,
+          "fp": 971,
+          "fn": 90,
+          "tn": 3029
+        },
+        "accuracy": 0.7642222222222222,
+        "balanced_accuracy": 0.7886249999999999,
+        "precision": 0.2968863142650253,
+        "recall": 0.82,
+        "f1": 0.4359383306751728,
+        "f0_5": 0.3403054448871181,
+        "specificity": 0.75725,
+        "product_clusters": 500
+      }
+    }
+  }
+}
